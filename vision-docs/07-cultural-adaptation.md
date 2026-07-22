@@ -16,9 +16,8 @@ Paste a source article and pick three target locales. Translate produces a basel
 
 ### AWS Services
 
-- **Amazon Translate** -- Produces a baseline word-for-word translation for each target locale
+- **Amazon Translate** -- Produces a fast, consistent baseline translation for each target locale; the visible "baseline vs adapted" contrast is what makes the demo land, and Translate's formality and custom terminology settings are bonus levers a general model doesn't expose
 - **Amazon Bedrock** -- Applies cultural adaptation on top of the translation: swaps idioms, references, humor, and tone; generates annotations explaining each change
-- **Amazon S3** -- Stores the source text, translations, and adapted versions
 
 ### Data Flow
 
@@ -31,8 +30,7 @@ Paste a source article and pick three target locales. Translate produces a basel
 
 ### State Management
 
-- **S3 bucket** -- Stores source text, baseline translations, and adapted versions with annotations
-- **In-memory** -- Translation outputs and Bedrock responses during processing
+- **In-memory** -- Source text, baseline translations, adapted versions, and annotations during processing (no storage service needed for the demo)
 
 ## Users & Roles
 
@@ -106,3 +104,9 @@ AWS sandbox credentials are pre-configured. No OAuth needed.
 - Each adaptation includes annotations explaining what was changed and why
 - Adaptations go beyond translation: idioms, references, and tone are localized
 - Side-by-side output is clear and readable
+
+## Judging Alignment (see JUDGING-RUBRIC.md)
+
+- **Business impact:** cultural adaptation today means a localization specialist per market, this makes every market affordable, frame it as global reach without global headcount
+- **Innovation angle:** the annotation layer, showing *what* changed and *why* per locale, turns a black-box rewrite into a tool local editors can trust and override
+- **Demo hook:** show the same sentence in three columns with the tailgating-to-aperitif style swap annotated, one glance tells the whole story

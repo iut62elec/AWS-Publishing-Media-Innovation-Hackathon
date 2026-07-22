@@ -10,18 +10,18 @@ Editors get buried in submissions -- thousands of manuscripts, pitches, and draf
 
 ## Solution
 
-Upload 2-3 sample submissions to S3. Send each to Bedrock along with your editorial standards. Bedrock returns a structured JSON assessment for each submission: quality score, topic fit, strengths, concerns, and a recommendation (pass, consider, reject).
+Paste or upload 2-3 sample submissions. Send each to Bedrock along with your editorial standards. Bedrock returns a structured JSON assessment for each submission: quality score, topic fit, strengths, concerns, and a recommendation (pass, consider, reject).
 
 ## Technical Architecture
 
 ### AWS Services
 
-- **Amazon Bedrock** -- Reads each submission, evaluates it against your editorial standards, and returns a structured JSON assessment
-- **Amazon S3** -- Stores the uploaded submissions and output assessments
+- **Amazon Bedrock** -- Reads each submission, evaluates it against your editorial standards, and returns a structured JSON assessment. This is the only service the demo needs.
+- **Amazon S3** (optional) -- Store submissions and assessments if you want persistence; pasted text and in-memory results are fine for the demo
 
 ### Data Flow
 
-1. User uploads 2-3 submission files (plain text or paste) to S3
+1. User pastes or uploads 2-3 submissions (plain text)
 2. User provides a short description of their editorial standards
 3. App sends each submission + standards to Bedrock in a single prompt
 4. Bedrock returns a JSON assessment per submission
@@ -29,8 +29,7 @@ Upload 2-3 sample submissions to S3. Send each to Bedrock along with your editor
 
 ### State Management
 
-- **S3 bucket** -- Stores input submissions and JSON output
-- **In-memory** -- Editorial standards and Bedrock responses during processing
+- **In-memory** -- Submissions, editorial standards, and Bedrock responses during processing (add S3 only if you want assessments to persist)
 
 ## Users & Roles
 
@@ -83,7 +82,6 @@ AWS sandbox credentials are pre-configured. No OAuth needed.
 ## API Resources
 
 - [Amazon Bedrock InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html)
-- [Amazon S3 PutObject / GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html)
 
 ## Out of Scope
 
@@ -98,3 +96,9 @@ AWS sandbox credentials are pre-configured. No OAuth needed.
 - Assessments are meaningfully different (a strong submission scores higher than a weak one)
 - Each assessment includes scores, strengths, concerns, and a recommendation
 - Output is valid JSON
+
+## Judging Alignment (see JUDGING-RUBRIC.md)
+
+- **Business impact:** quantify the time saved, "an editor spends half a day on 30 pitches every Monday, this returns a pre-sorted queue in two minutes"
+- **Innovation angle:** the assessments adapt to *your* editorial standards typed in plain English, not a fixed rubric, show two different standards producing different verdicts on the same submission
+- **Demo hook:** feed it one strong and one weak submission live, the meaningfully different assessments are the moment that lands

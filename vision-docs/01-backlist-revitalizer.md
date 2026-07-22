@@ -10,29 +10,25 @@ Publishers have thousands of backlist titles sitting idle. Some are one trend aw
 
 ## Solution
 
-Upload a catalog CSV to S3. Use Comprehend to pull themes from thin descriptions, then use Bedrock to score each title against a set of trending topics you define. The system returns a ranked list with confidence scores and a short marketing pitch for each match.
+Upload a catalog CSV. Bedrock does the whole job in one flow: it enriches thin descriptions with inferred themes, scores each title against a set of trending topics you define, and writes a short marketing pitch for each match. The system returns a ranked list with confidence scores.
 
 ## Technical Architecture
 
 ### AWS Services
 
-- **Amazon Bedrock** -- Compares each title's metadata against trending topics, scores relevance, and generates a short marketing pitch per title
-- **Amazon Comprehend** -- Extracts key phrases and themes from sparse catalog descriptions to give Bedrock more to work with
-- **Amazon S3** -- Stores the uploaded CSV and output results
+- **Amazon Bedrock** -- Enriches sparse metadata with inferred themes, compares each title against trending topics, scores relevance, and generates a short marketing pitch per title. One model call per batch of titles is enough.
+- **Amazon S3** (optional) -- Store the uploaded CSV and results if you want persistence; a local file works fine for the demo
 
 ### Data Flow
 
-1. User uploads a CSV file (titles, authors, descriptions) to S3
-2. App reads the CSV and sends each description to Comprehend for key phrase extraction
-3. App combines the original metadata + extracted themes into a prompt for Bedrock
-4. Bedrock scores each title against the user-provided trending topics
-5. Bedrock generates a short pitch for top-scoring titles
-6. App returns a ranked list as JSON
+1. User uploads a CSV file (titles, authors, descriptions)
+2. App batches the rows and sends them to Bedrock with the user-provided trending topics
+3. Bedrock enriches each title's themes, scores it against the trends, and writes a pitch for top scorers
+4. App returns a ranked list as JSON
 
 ### State Management
 
-- **S3 bucket** -- Stores the input CSV and the JSON output
-- **In-memory** -- Trending topics list and intermediate Comprehend results live in app memory during processing
+- **In-memory** -- Catalog rows, trending topics, and Bedrock results live in app memory during processing; write the JSON output to a local file (or S3 if you chose it)
 
 ## Users & Roles
 
@@ -44,10 +40,9 @@ Upload a catalog CSV to S3. Use Comprehend to pull themes from thin descriptions
 2. User selects a CSV file (20-50 rows with title, author, description columns)
 3. User types or pastes a list of current trending topics (e.g., "gut health, remote work, AI ethics")
 4. User clicks "Analyze"
-5. System extracts key phrases from each description using Comprehend
-6. System sends each title + themes + trends to Bedrock for scoring
-7. System displays a ranked list: title, confidence score, and a one-paragraph pitch
-8. User can click any title to see the full pitch and matching trend
+5. System sends the titles + descriptions + trends to Bedrock, which enriches themes and scores each title
+6. System displays a ranked list: title, confidence score, and a one-paragraph pitch
+7. User can click any title to see the full pitch and matching trend
 
 ## Requirements
 
@@ -78,14 +73,13 @@ AWS sandbox credentials are pre-configured in the environment. No OAuth or token
 
 ### Key API Calls
 
-- `comprehend:DetectKeyPhrases` -- Extract themes from each catalog description
-- `bedrock-runtime:InvokeModel` -- Score titles against trends and generate pitches (model: Claude on Bedrock)
+- `bedrock-runtime:InvokeModel` -- Enrich themes, score titles against trends, and generate pitches in one structured JSON response (model: Claude on Bedrock)
+- `comprehend:DetectKeyPhrases` (optional) -- Only if you want a separate quantitative key phrase signal; Bedrock alone handles the demo fine
 
 ## API Resources
 
-- [Amazon Comprehend DetectKeyPhrases](https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DetectKeyPhrases.html)
 - [Amazon Bedrock InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html)
-- [Amazon S3 PutObject / GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html)
+- [Amazon Comprehend DetectKeyPhrases](https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DetectKeyPhrases.html) (optional)
 
 ## Out of Scope
 
@@ -100,3 +94,9 @@ AWS sandbox credentials are pre-configured in the environment. No OAuth or token
 - Each result has a confidence score and a short marketing pitch
 - At least one title clearly matches a provided trend
 - Results return within 60 seconds for a 50-row CSV
+
+## Judging Alignment (see JUDGING-RUBRIC.md)
+
+- **Business impact:** frame the value as found revenue, every resurfaced title is marketing-ready inventory you already own, zero new content cost
+- **Innovation angle:** the metadata enrichment step, turning a one-line description into rich themes before matching, is what existing catalog tools don't do
+- **Demo hook:** open with one real-feeling example ("this 2019 fermentation cookbook matches today's gut-health trend"), then show the ranked list finding it automatically

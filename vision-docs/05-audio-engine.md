@@ -18,7 +18,7 @@ Paste text into the app. Bedrock analyzes the content, identifies dialogue vs. n
 
 - **Amazon Bedrock** -- Analyzes input text, identifies dialogue/narration/scenes, and generates a script split by speaker role with SSML tags for pacing and emphasis
 - **Amazon Polly** -- Renders each segment into audio via separate `SynthesizeSpeech` calls, each with a different VoiceId. Polly uses one voice per call — the app stitches clips together for multi-voice output.
-- **Amazon S3** -- Stores the input text, generated SSML script, and final MP3 audio files
+- **Amazon S3** (conditional) -- Only needed for Polly's async `StartSpeechSynthesisTask` on segments over 6,000 characters (it writes output to S3); for the demo, sync calls return audio directly and local files are fine
 
 ### Data Flow
 
@@ -32,8 +32,7 @@ Paste text into the app. Bedrock analyzes the content, identifies dialogue vs. n
 
 ### State Management
 
-- **S3 bucket** -- Stores input text, SSML script, individual audio segments, and the final combined MP3
-- **In-memory** -- SSML parsing and segment routing during processing
+- **In-memory / local files** -- Input text, SSML script, audio segments, and the final combined MP3 during the session (S3 only for async Polly jobs)
 
 ## Users & Roles
 
@@ -105,3 +104,9 @@ AWS sandbox credentials are pre-configured. No OAuth needed.
 - Polly renders a multi-voice MP3 with audibly different speakers
 - Play at least a 60-second audio clip in the demo
 - Script markup is visible and shows voice assignments
+
+## Judging Alignment (see JUDGING-RUBRIC.md)
+
+- **Business impact:** "$5,000+ per finished hour priced out 500 backlist titles, this closes the gap", plus the European Accessibility Act makes audio a compliance need, not a nice-to-have
+- **Innovation angle:** not just text-to-speech, the model *directs* the production, splitting roles, assigning voices, adding pacing, that is the step nobody's tooling does
+- **Demo hook:** play the 60-second multi-voice clip and let the room hear two distinct characters, audio demos carry themselves

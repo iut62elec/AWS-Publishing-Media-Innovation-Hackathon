@@ -17,8 +17,8 @@ Paste a source article into the app. Bedrock generates five channel-specific ver
 ### AWS Services
 
 - **Amazon Bedrock** -- Converts the source article into five distinct formats (newsletter, social, audio script, push notification, SEO summary)
-- **Amazon Polly** -- Renders the audio script into an MP3 using neural text-to-speech
-- **Amazon S3** -- Stores the source article, generated outputs, and audio file
+- **Amazon Polly** -- Renders the audio script into an MP3 using neural text-to-speech (this is what makes the audio output real, Bedrock cannot synthesize speech)
+- **Amazon S3** (optional) -- Only needed if you use Polly's async `StartSpeechSynthesisTask` for long scripts (it writes output to S3); for the demo, `SynthesizeSpeech` returns audio directly and a local file is fine
 
 ### Data Flow
 
@@ -26,13 +26,12 @@ Paste a source article into the app. Bedrock generates five channel-specific ver
 2. App sends the article to Bedrock with a prompt specifying five output formats and their rules
 3. Bedrock returns five formatted versions
 4. App sends the audio script version to Polly for speech synthesis
-5. Polly returns an MP3 file, stored to S3
+5. Polly returns the MP3 audio, saved locally (or to S3 for long async jobs)
 6. App displays all five outputs with an inline audio player
 
 ### State Management
 
-- **S3 bucket** -- Stores the source text, all five outputs, and the MP3 audio file
-- **In-memory** -- Article text and Bedrock responses during processing
+- **In-memory / local files** -- Article text, generated outputs, and the MP3 during the session (S3 only for async Polly jobs)
 
 ## Users & Roles
 
@@ -106,3 +105,9 @@ AWS sandbox credentials are pre-configured. No OAuth needed.
 - Each output follows its channel's conventions (not just a shorter copy of the original)
 - At least one output is a playable MP3 audio file
 - An editorial review step exists (editable text before export)
+
+## Judging Alignment (see JUDGING-RUBRIC.md)
+
+- **Business impact:** do the math out loud, "four people, four rewrites, four hours per article, times hundreds of articles a week", the reformatting tax is easy to price
+- **Innovation angle:** each output respects its channel's conventions (character limits, tone, structure), not just shorter copies, and the audio output makes it multimodal
+- **Demo hook:** paste the article, flip through the five tabs, then press play on the audio, ending on sound is memorable

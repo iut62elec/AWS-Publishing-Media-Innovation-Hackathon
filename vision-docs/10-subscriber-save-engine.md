@@ -16,12 +16,12 @@ Upload a CSV of subscriber engagement data. Bedrock analyzes each subscriber, as
 
 ### AWS Services
 
-- **Amazon Bedrock** -- Analyzes engagement patterns, assigns churn risk with reasons, and writes personalized win-back emails
-- **Amazon S3** -- Stores the subscriber CSV and generated outputs
+- **Amazon Bedrock** -- Analyzes engagement patterns, assigns churn risk with reasons, and writes personalized win-back emails. This is the only service the demo needs.
+- **Amazon S3** (optional) -- Store the CSV and outputs if you want persistence; a local file is fine for the demo
 
 ### Data Flow
 
-1. User uploads a subscriber engagement CSV (sample provided) to S3
+1. User uploads a subscriber engagement CSV (sample provided)
 2. App sends the subscriber records to Bedrock with analysis instructions
 3. Bedrock returns structured JSON per subscriber: risk level, warning signs, save plan
 4. For high-risk subscribers, Bedrock generates a personalized win-back email
@@ -29,8 +29,7 @@ Upload a CSV of subscriber engagement data. Bedrock analyzes each subscriber, as
 
 ### State Management
 
-- **S3 bucket** -- Stores input CSV and generated assessments/emails
-- **In-memory** -- Parsed subscriber records and Bedrock responses during processing
+- **In-memory** -- Parsed subscriber records, assessments, and emails during processing (add S3 only if you want outputs to persist)
 
 ## Users & Roles
 
@@ -95,3 +94,9 @@ AWS sandbox credentials are pre-configured. No OAuth needed.
 - The planted at-risk patterns are correctly flagged as high risk with sensible warning signs
 - At least 2 high-risk subscribers get meaningfully different, personalized win-back emails
 - Dashboard ranks subscribers by risk with color coding
+
+## Judging Alignment (see JUDGING-RUBRIC.md)
+
+- **Business impact:** the easiest ROI story in the room, publishers lose 4-5% of digital subscribers monthly and retention is the stated top revenue priority, saving even a fraction is real money
+- **Innovation angle:** replacing the one-size-fits-all discount email with a save plan built from each reader's actual history, personal beats generic and costs nothing extra to send
+- **Demo hook:** click one at-risk subscriber, tell her story from the data ("daily food reader, silent for three weeks"), then read her win-back email out loud, that email is the demo

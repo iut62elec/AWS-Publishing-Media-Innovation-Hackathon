@@ -10,38 +10,35 @@ Every nonfiction piece has dozens of factual claims -- dates, statistics, prices
 
 ## Solution
 
-Paste an article and upload a reference document (fact sheet, previous edition, or source material). Comprehend identifies key entities. Bedrock extracts every factual claim, then checks each one against your reference. Each claim gets a status: confirmed, disputed, or unverifiable -- with citations to the reference source.
+Paste an article and provide a reference document (fact sheet, previous edition, or source material). Bedrock extracts every factual claim, then checks each one against your reference. Each claim gets a status: confirmed, disputed, or unverifiable -- with citations to the reference source.
 
 ## Technical Architecture
 
 ### AWS Services
 
-- **Amazon Bedrock** -- Extracts factual claims from the article, then verifies each against the reference document and returns a status with citations
-- **Amazon Comprehend** -- Detects and classifies entities (dates, amounts, organizations, people) to help focus the fact-checking
-- **Amazon S3** -- Stores the article text, reference documents, and verification results
+- **Amazon Bedrock** -- Extracts factual claims from the article, verifies each against the reference document, and returns a status with citations. This is the only service the demo needs.
+- **Amazon Comprehend** (optional) -- A separate quantitative entity signal (dates, amounts, organizations) if you want to cross-check that every detected entity was covered by a claim; Bedrock alone handles claim extraction fine
+- **Amazon S3** (bonus only) -- Required if you use Bedrock Knowledge Bases for large reference sets, which ingests documents from S3
 
 ### Data Flow
 
 **Basic approach (small reference docs):**
 
-1. User pastes an article and uploads a reference document to S3
-2. App sends the article to Comprehend for entity detection
-3. Comprehend returns classified entities (dates, numbers, names, organizations)
-4. App sends the article + reference doc + entity list to Bedrock
-5. Bedrock extracts factual claims, verifies each against the reference, and returns a status per claim
-6. App displays the claims with color-coded verification status
+1. User pastes an article and a reference document
+2. App sends the article + reference to Bedrock in one prompt
+3. Bedrock extracts factual claims, verifies each against the reference, and returns a status per claim
+4. App displays the claims with color-coded verification status
 
 **Scalable approach (large or multiple reference docs — bonus):**
 
 1. Upload reference documents to S3 and index them with Bedrock Knowledge Bases (managed RAG — automatic chunking, embedding, and indexing)
-2. User pastes an article; app sends it to Comprehend for entity detection
+2. User pastes an article; Bedrock extracts the claims
 3. For each claim, use `RetrieveAndGenerate` to semantically retrieve relevant reference chunks and verify the claim — no need to fit the full reference in the prompt
 4. App displays results with color-coded verification status
 
 ### State Management
 
-- **S3 bucket** -- Stores article text, reference documents, and JSON results
-- **In-memory** -- Entity list and claim verification results during processing
+- **In-memory** -- Article, reference text, and claim verification results during processing (S3 only for the Knowledge Bases bonus)
 
 ## Users & Roles
 
@@ -54,10 +51,9 @@ Paste an article and upload a reference document (fact sheet, previous edition, 
 2. User pastes an article (500-3,000 words)
 3. User uploads a reference document (PDF, text, or pasted text)
 4. User clicks "Check Facts"
-5. System runs Comprehend to identify entities
-6. System sends article + reference + entities to Bedrock
-7. Bedrock returns a list of claims with verification status
-8. System displays results: each claim as a row with status badge
+5. System sends article + reference to Bedrock
+6. Bedrock returns a list of claims with verification status
+7. System displays results: each claim as a row with status badge
    - Green = confirmed against reference
    - Yellow = not found in reference (unverifiable)
    - Red = contradicts reference
@@ -93,14 +89,14 @@ AWS sandbox credentials are pre-configured. No OAuth needed.
 
 ### Key API Calls
 
-- `comprehend:DetectEntities` -- Identify dates, numbers, names, organizations in the article
 - `bedrock-runtime:InvokeModel` -- Extract claims from article, verify each against reference document (model: Claude on Bedrock)
+- `comprehend:DetectEntities` (optional) -- Identify dates, numbers, names, organizations as a separate cross-check signal
 - `bedrock-agent-runtime:RetrieveAndGenerate` -- (Bonus) Query Bedrock Knowledge Bases to semantically retrieve relevant reference chunks and verify claims. Scales to large reference sets without fitting everything in the prompt.
 
 ## API Resources
 
-- [Amazon Comprehend DetectEntities](https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DetectEntities.html)
 - [Amazon Bedrock InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html)
+- [Amazon Comprehend DetectEntities](https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DetectEntities.html) (optional)
 - [Amazon Bedrock Knowledge Bases - RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) (bonus)
 - [Amazon Bedrock Guardrails - Automated Reasoning Checks](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-automated-reasoning.html) (bonus — up to 99% verification accuracy against domain knowledge)
 
@@ -117,3 +113,9 @@ AWS sandbox credentials are pre-configured. No OAuth needed.
 - Each claim has a verification status (confirmed, disputed, or unverifiable)
 - At least one claim is flagged as unverifiable or disputed
 - Reference passages are cited for confirmed and disputed claims
+
+## Judging Alignment (see JUDGING-RUBRIC.md)
+
+- **Business impact:** a stale fact in a money or health article costs search rankings, affiliate revenue, and reader trust, the credit-card APR story prices the pain
+- **Innovation angle:** the honest yellow "unverifiable" status, a fact-checker that never bluffs is the trustworthy kind, and that trust story resonates with publishing executives
+- **Demo hook:** run an article with one planted error against the reference doc live, the red flag appearing on the wrong number is the moment

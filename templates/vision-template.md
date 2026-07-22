@@ -59,3 +59,13 @@ What are you explicitly NOT building? Cutting scope here is what saves your demo
 
 -
 -
+
+## Judging Alignment (see JUDGING-RUBRIC.md)
+
+- **Business impact:** one sentence on the value in numbers if you can (time saved, revenue protected, readers retained)
+- **Innovation angle:** what does your solution do that existing tools don't?
+- **Demo hook:** the single moment in your 4 minute demo that will make the judges remember you
+
+-
+-
+-

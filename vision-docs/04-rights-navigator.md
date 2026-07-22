@@ -16,14 +16,14 @@ Upload a PDF contract. Textract extracts the text (including scanned documents).
 
 ### AWS Services
 
-- **Amazon Textract** -- Extracts text from PDF contracts, including scanned/image-based PDFs via OCR
+- **Amazon Textract** -- Extracts text from PDF contracts, including scanned/image-based PDFs via OCR (this is where Textract genuinely beats a general model: reliable OCR on scans)
 - **Amazon Bedrock** -- Answers plain-English questions about the contract text, citing specific clauses
-- **Amazon S3** -- Stores the uploaded PDFs and extracted text
+- **Amazon S3** (conditional) -- Required only for async Textract on contracts longer than 5 pages (async input must come from S3); sync Textract accepts the PDF bytes directly
 
 ### Data Flow
 
-1. User uploads 1-2 PDF contracts to S3
-2. App sends each PDF to Textract for text extraction
+1. User uploads 1-2 PDF contracts
+2. App sends each PDF to Textract for text extraction (bytes directly for short PDFs, via S3 for long ones)
 3. Textract returns the full text of each contract
 4. User types a question in plain English
 5. App sends the contract text + question to Bedrock
@@ -32,8 +32,7 @@ Upload a PDF contract. Textract extracts the text (including scanned documents).
 
 ### State Management
 
-- **S3 bucket** -- Stores uploaded PDFs and extracted text files
-- **In-memory** -- Extracted contract text and Bedrock conversation history (for follow-up questions)
+- **In-memory** -- Extracted contract text and Bedrock conversation history (for follow-up questions); S3 only when async Textract requires it
 
 ## Users & Roles
 
@@ -108,3 +107,9 @@ AWS sandbox credentials are pre-configured. No OAuth needed.
 - Ask at least 3 plain-English questions and get answers with clause citations
 - At least one ambiguous clause is flagged as "needs legal review"
 - Answers return within 30 seconds per question
+
+## Judging Alignment (see JUDGING-RUBRIC.md)
+
+- **Business impact:** "a rights lookup that takes two days takes thirty seconds", missed rights windows are missed deals, and the film-studio-call story makes it concrete
+- **Innovation angle:** clause-level citations and the honest "needs legal review" flag, the system knows what it doesn't know, executives from legal-heavy businesses will notice
+- **Demo hook:** ask the contract a question a judge might ask ("can we sell the audiobook in Germany?") and let the cited clause appear on screen

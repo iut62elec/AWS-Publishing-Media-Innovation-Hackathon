@@ -16,12 +16,12 @@ Upload 10-20 articles to S3. A chat interface lets readers ask questions in plai
 
 ### AWS Services
 
-- **Amazon Bedrock** -- Answers questions grounded in the uploaded articles, with per-claim citations; refuses questions the archive can't answer
-- **Amazon S3** -- Stores the article archive
+- **Amazon Bedrock** -- Answers questions grounded in the uploaded articles, with per-claim citations; refuses questions the archive can't answer. This is the only service the basic demo needs.
+- **Amazon S3** (bonus only) -- Required if you use Bedrock Knowledge Bases, which ingests the archive from S3; for the basic demo, local article files loaded into the prompt are fine
 
 ### Data Flow
 
-1. User uploads 10-20 articles (or uses provided samples) to S3
+1. User loads 10-20 articles (or uses provided samples)
 2. Reader types a question in the chat interface
 3. App loads the articles plus the question into a single Bedrock prompt with strict grounding instructions
 4. Bedrock returns an answer with cited article titles, or a "not covered" response
@@ -29,8 +29,7 @@ Upload 10-20 articles to S3. A chat interface lets readers ask questions in plai
 
 ### State Management
 
-- **S3 bucket** -- Stores the article archive
-- **In-memory** -- Chat history and loaded article text during the session
+- **In-memory** -- Chat history and loaded article text during the session (S3 only for the Knowledge Bases bonus)
 
 ## Users & Roles
 
@@ -97,3 +96,9 @@ AWS sandbox credentials are pre-configured. No OAuth needed.
 - Every answer cites the source article titles
 - The out-of-archive question gets an honest "not covered" response, not a hallucination
 - Follow-up questions keep conversational context
+
+## Judging Alignment (see JUDGING-RUBRIC.md)
+
+- **Business impact:** this answers the industry's biggest 2026 fear, falling search traffic, with cited stats (AI Overviews cut click-through roughly in half), every citation is a recovered pageview
+- **Innovation angle:** the honest "our archive doesn't cover this" refusal plus the unanswered-questions-as-story-ideas bonus, an AI product that generates editorial insight, not just answers
+- **Demo hook:** ask the three questions in order, single-article, cross-article synthesis, then the one it refuses, the refusal earns more trust in the room than the answers
