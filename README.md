@@ -21,7 +21,7 @@ If you prefer your own local setup with another coding agent, that is fine too, 
 1. You will form a team of around five people, one team builds one idea
 2. Pick one of the 8 ready made ideas below, or bring your own
 3. Follow the **[Build Guide](BUILD-GUIDE.md)**, it gives you the exact prompts to go from idea to working demo
-4. Build for about 4.5 hours, then present a short demo to the judging panel
+4. Build for about 4.5 hours, then present a short demo to the judging panel, scored using the **[Judging Rubric](JUDGING-RUBRIC.md)**, read it before you build, it tells you exactly what the judges reward
 
 ## The ideas
 
