@@ -2,6 +2,8 @@
 
 Welcome! This repo is everything you need to build your idea today. Read this page first, it takes 3 minutes.
 
+Event page: [awspublishinghackathon032026.splashthat.com](https://awspublishinghackathon032026.splashthat.com/)
+
 ---
 
 ## What you get on the day
