@@ -62,9 +62,23 @@ REQUIREMENTS.md is approved. Now write PLAN.md. Do not write any code yet.
 
 PLAN.md must contain:
 1. Architecture: a short description plus a simple text diagram of what the app
-   looks like, which AWS services we call and how data flows (our sandbox AWS
-   account has Bedrock, S3, Lambda, Polly, Textract, Translate, and Comprehend
-   available).
+   looks like, which AWS services we call and how data flows. Our sandbox AWS
+   account has the full range of AWS services available. Choose services in
+   this order, and justify each choice in one line:
+   a. Amazon Bedrock first: can a Bedrock model solve this step (understanding,
+      generation, extraction, classification, structured JSON)? Modern models
+      handle most of these directly, prefer one well used Bedrock call over
+      extra moving parts.
+   b. Specialized AI services where they beat a general model: Polly for
+      speech, Textract for PDFs and scans, Translate for baseline translation,
+      Comprehend for entity and sentiment analysis at scale.
+   c. Everything else (S3, DynamoDB, Lambda, and any other AWS service) only
+      when a requirement truly needs it, for example S3 for file storage,
+      DynamoDB only if we genuinely need data to survive restarts, Lambda only
+      if something must run without the app open. If a Python dict or a local
+      file does the job for a demo, use that instead.
+   Pick whatever is genuinely best for the requirement, but every service in
+   the plan must earn its place, fewer moving parts means more demo.
 2. Tech stack: the simplest thing that works, for example a Python Streamlit
    app calling AWS with boto3. No databases or extra infrastructure unless a
    requirement truly needs them. For every AWS service in the plan, look up
