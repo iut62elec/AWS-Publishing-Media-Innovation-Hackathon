@@ -67,7 +67,11 @@ PLAN.md must contain:
    available).
 2. Tech stack: the simplest thing that works, for example a Python Streamlit
    app calling AWS with boto3. No databases or extra infrastructure unless a
-   requirement truly needs them.
+   requirement truly needs them. For every AWS service in the plan, look up
+   the latest AWS documentation first (use the AWS documentation MCP tools if
+   available, otherwise search the current AWS docs) and confirm the API
+   names, limits, and the current recommended usage, do not rely on memory
+   for AWS specifics.
 3. A task checklist in two phases:
    - Phase A, local first: the app runs on this machine end to end with
      sample data, AI and AWS calls mocked or hardcoded
@@ -141,9 +145,13 @@ The local app is approved. Build Phase B from PLAN.md:
 
 1. Replace the mocked AI parts with real calls to Amazon Bedrock (and the
    other AWS services in PLAN.md) using boto3 and the AWS credentials already
-   configured in this environment. One service at a time, and after each one,
-   run the minimum demo flow yourself and show us it still works before
-   moving to the next. Keep ticking the PLAN.md checkboxes.
+   configured in this environment. Before writing each integration, check the
+   latest AWS documentation for that service (use the AWS documentation MCP
+   tools if available, otherwise search the current AWS docs) and use the
+   current API, model IDs, and limits, do not rely on memory for AWS
+   specifics. One service at a time, and after each one, run the minimum
+   demo flow yourself and show us it still works before moving to the next.
+   Keep ticking the PLAN.md checkboxes.
 2. Then answer honestly in two sentences: for our 4 minute demo, do we need
    to deploy anything to AWS infrastructure (S3 hosting, Lambda, an API), or
    is running locally enough? If deployment is genuinely needed for a
@@ -179,6 +187,7 @@ The app works end to end. Now write DEMO.md and do the final polish:
 - **Approve in writing.** The `approve` replies at each gate are what keep the build on rails. If you skip the reading, you approve a plan you haven't seen.
 - **The md files are the memory.** If the session gets confused or restarts, say "read REQUIREMENTS.md and PLAN.md and continue from the first unchecked task".
 - **Local first, always.** A flow you can test on your laptop in seconds beats debugging in the cloud. Add AWS services once the flow works.
+- **Latest docs, not memory.** AWS APIs, model IDs, and limits change fast. Any time Claude Code writes AWS code, tell it to check the latest AWS documentation first, "look up the current Bedrock API for this in the AWS docs before writing the code" is always a legitimate prompt.
 - **Small scope wins.** A tiny thing that works beats a big thing that almost works. Judges reward working demos, see the [Judging Rubric](JUDGING-RUBRIC.md).
 - **One person drives, everyone reviews.** One keyboard, five brains. Rotate the driver if you like.
 - **Paste errors verbatim.** Full error text, not a paraphrase. Claude Code is very good at fixing what it can see.
