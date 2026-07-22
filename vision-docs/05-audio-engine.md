@@ -6,7 +6,7 @@ Turn text into multi-voice audio with AI-generated script markup -- in minutes i
 
 ## Problem
 
-Audio production costs $5,000+ per finished hour. That prices out most backlist titles and mid-tier content. European accessibility rules are pushing publishers to offer more audio, but traditional narration is too expensive for the long tail. AI voices are now good enough to close the gap.
+Audio production costs $5,000+ per finished hour. That prices out most backlist titles and mid-tier content. The European Accessibility Act (in force June 2025) requires accessible formats, and the backlist conversion burden is the acute pain point -- traditional narration is too expensive for the long tail. AI voices are now good enough to close the gap.
 
 ## Solution
 

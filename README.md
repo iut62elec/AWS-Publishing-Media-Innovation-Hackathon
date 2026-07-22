@@ -37,8 +37,10 @@ Each idea is a real publishing industry problem, designed to be buildable in an 
 | 6 | [Real-Time Fact-Checker](ideas/06-real-time-fact-checker.md) | Catch factual errors before publication | Editors, reviewers |
 | 7 | [Cultural Adaptation Engine](ideas/07-cultural-adaptation-engine.md) | Localize for culture, not just language | International teams |
 | 8 | [Reader Drop-Off Predictor](ideas/08-reader-drop-off-predictor.md) | Predict where readers lose interest | Content strategists |
+| 9 | [Ask Your Archive](ideas/09-ask-your-archive.md) | Your own AI chat over your content, like "Ask The Post AI" | Product, audience teams |
+| 10 | [Subscriber Save Engine](ideas/10-subscriber-save-engine.md) | Spot subscribers about to cancel, win them back personally | Retention, marketing teams |
 
-Tip: Intelligent Content Triage (#2) is the simplest, start there if you want a quick win.
+Tip: Intelligent Content Triage (#2) is the simplest, start there if you want a quick win. Ask Your Archive (#9) and Subscriber Save Engine (#10) target the two issues publishers rank highest right now, falling search traffic and subscription churn.
 
 ## Vision documents, your starting spec
 
