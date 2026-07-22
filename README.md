@@ -48,4 +48,4 @@ Every idea has a ready made one page **vision document** in [`vision-docs/`](vis
 
 ## Start building
 
-Go to the **[Build Guide](BUILD-GUIDE.md)** and follow the 5 steps. Good luck, and have fun!
+Go to the **[Build Guide](BUILD-GUIDE.md)** and follow the 6 steps, you build and test everything locally first, then wire in real AWS services, and deploy to AWS infrastructure only if your use case needs it. Good luck, and have fun!
