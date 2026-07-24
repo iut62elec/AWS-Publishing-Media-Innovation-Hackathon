@@ -30,13 +30,14 @@ bedrock = boto3.client("bedrock-runtime", region_name="us-east-1")
 
 
 # --- Helper: Call Claude via Bedrock ---
-def ask_claude(prompt, max_tokens=2048, model="us.anthropic.claude-sonnet-4-5-20250929-v1:0"):
+def ask_claude(prompt, max_tokens=2048, model="us.anthropic.claude-sonnet-4-6"):
     """
     Call Claude via Amazon Bedrock.
 
     Models available:
         us.anthropic.claude-haiku-4-5-20251001-v1:0   (fast, cheap — good for dev)
-        us.anthropic.claude-sonnet-4-5-20250929-v1:0  (best quality — good for demo)
+        us.anthropic.claude-sonnet-4-6                 (best available — good for demo)
+        us.anthropic.claude-sonnet-4-5-20250929-v1:0  (also excellent quality)
     """
     response = bedrock.invoke_model(
         modelId=model,

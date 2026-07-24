@@ -44,6 +44,18 @@ Same issue — you need the `us.` prefixed inference profile ID, not the base mo
 
 **Fix:** Add `us.` prefix. Change `anthropic.claude-haiku-4-5-20251001-v1:0` to `us.anthropic.claude-haiku-4-5-20251001-v1:0`.
 
+### `AccessDeniedException: ... is not available for this account`
+
+Some models (like Opus) require separate access approval and aren't available on sandbox accounts.
+
+**Fix:** Use models that work immediately:
+```python
+# These work on sandbox accounts:
+modelId='us.anthropic.claude-sonnet-4-6'               # Best available
+modelId='us.anthropic.claude-sonnet-4-5-20250929-v1:0' # Also excellent
+modelId='us.anthropic.claude-haiku-4-5-20251001-v1:0'  # Fastest/cheapest
+```
+
 ### How to list all available models
 
 ```python
