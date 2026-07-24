@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Hackathon Project</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f1419;
+            color: #e7e9ea;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { font-size: 2rem; margin-bottom: 1rem; }
+        .panel {
+            background: #16202a;
+            border: 1px solid #2f3336;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        textarea, input[type="text"] {
+            width: 100%;
+            background: #0f1419;
+            border: 1px solid #2f3336;
+            border-radius: 8px;
+            color: #e7e9ea;
+            padding: 1rem;
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+        textarea { height: 150px; resize: vertical; }
+        textarea:focus, input:focus { outline: none; border-color: #7c3aed; }
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            background: linear-gradient(135deg, #7c3aed, #2563eb);
+            color: white;
+            margin-top: 1rem;
+        }
+        .btn:hover { opacity: 0.9; }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        #result {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #0f1419;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            display: none;
+        }
+        #result.visible { display: block; }
+        .error { color: #ef4444; }
+        .loading { color: #71767b; font-style: italic; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Hackathon Project</h1>
+
+        <div class="panel">
+            <textarea id="input" placeholder="Enter your text here..."></textarea>
+            <button class="btn" id="submitBtn" onclick="submitForm()">Process</button>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        async function submitForm() {
+            const input = document.getElementById('input').value.trim();
+            const resultDiv = document.getElementById('result');
+            const btn = document.getElementById('submitBtn');
+
+            if (!input) return;
+
+            btn.disabled = true;
+            resultDiv.className = 'visible loading';
+            resultDiv.textContent = 'Processing...';
+
+            try {
+                // IMPORTANT: Use relative URL (no leading slash) for CloudFront proxy
+                const resp = await fetch('process', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({input})
+                });
+
+                const contentType = resp.headers.get('content-type') || '';
+                if (!contentType.includes('application/json')) {
+                    throw new Error('Server returned HTML instead of JSON. Make sure your Flask app is running.');
+                }
+
+                const data = await resp.json();
+                if (!resp.ok) throw new Error(data.error || 'Request failed');
+
+                resultDiv.className = 'visible';
+                resultDiv.textContent = data.result;
+            } catch (e) {
+                resultDiv.className = 'visible error';
+                resultDiv.textContent = 'Error: ' + e.message;
+            } finally {
+                btn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
