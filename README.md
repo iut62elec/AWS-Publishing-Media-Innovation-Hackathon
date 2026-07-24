@@ -50,6 +50,12 @@ Every idea has a ready made one page **vision document** in [`vision-docs/`](vis
 
 **Bringing your own idea?** Great. Copy [`templates/vision-template.md`](templates/vision-template.md), fill it in (it takes 15 minutes), and use it exactly the same way. A good spec is the single biggest thing you can do to make your coding agent effective.
 
-## Start building
+## Get started
 
-Go to the **[Build Guide](BUILD-GUIDE.md)** and follow the 6 steps, you build and test everything locally first, then wire in real AWS services, and deploy to AWS infrastructure only if your use case needs it. Good luck, and have fun!
+1. **First:** Complete the **[Setup Guide](SETUP-GUIDE.md)** — get credentials, verify AWS access, install dependencies (5 minutes)
+2. **Then:** Follow the **[Build Guide](BUILD-GUIDE.md)** — 6 steps from idea to working demo
+3. **If stuck:** Check the **[Troubleshooting Guide](TROUBLESHOOTING.md)** — quick fixes for common issues
+
+The [`starter/`](starter/) folder has ready-to-use templates: a Flask app skeleton, HTML template, smoke test script, and `.gitignore`. Copy them into your project to skip boilerplate.
+
+Good luck, and have fun!
