@@ -46,14 +46,19 @@ Same issue — you need the `us.` prefixed inference profile ID, not the base mo
 
 ### `AccessDeniedException: ... is not available for this account`
 
-Some models (like Opus) require separate access approval and aren't available on sandbox accounts.
+Some newer Opus models (4.7, 4.8) require separate access approval.
 
-**Fix:** Use models that work immediately:
+**Fix:** Use models that work on sandbox accounts:
 ```python
-# These work on sandbox accounts:
-modelId='us.anthropic.claude-sonnet-4-6'               # Best available
+# These work on sandbox accounts (tested):
+modelId='us.anthropic.claude-opus-4-6-v1'              # Best quality (available!)
+modelId='us.anthropic.claude-sonnet-4-6'               # Best speed/quality balance
 modelId='us.anthropic.claude-sonnet-4-5-20250929-v1:0' # Also excellent
 modelId='us.anthropic.claude-haiku-4-5-20251001-v1:0'  # Fastest/cheapest
+
+# These are BLOCKED on sandbox accounts:
+# us.anthropic.claude-opus-4-7
+# us.anthropic.claude-opus-4-8
 ```
 
 ### How to list all available models

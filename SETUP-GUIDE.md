@@ -149,12 +149,13 @@ You're ready! Open the [BUILD-GUIDE.md](BUILD-GUIDE.md) and follow the six steps
 
 ## Available AWS Services (Quick Reference)
 
-> **Note:** Opus models require separate access approval and may not be available on sandbox accounts. Stick to **Sonnet 4.6** or **Haiku 4.5** — they work immediately and are more than capable for hackathon projects.
+> **Note:** Some newer Opus models (4.7, 4.8) may not be available on sandbox accounts. Use **Opus 4.6** for the best quality, or **Sonnet 4.6** for a fast and excellent alternative.
 
 | Service | Use Case | Bedrock Model ID |
 |---------|----------|-----------------|
-| Amazon Bedrock (Claude Sonnet 4.6) | Best available — complex analysis, structured output | `us.anthropic.claude-sonnet-4-6` |
-| Amazon Bedrock (Claude Haiku 4.5) | Fast AI tasks, classification, extraction | `us.anthropic.claude-haiku-4-5-20251001-v1:0` |
+| Amazon Bedrock (Claude Opus 4.6) | Highest quality — complex reasoning, nuanced tasks | `us.anthropic.claude-opus-4-6-v1` |
+| Amazon Bedrock (Claude Sonnet 4.6) | Best speed/quality balance — recommended default | `us.anthropic.claude-sonnet-4-6` |
+| Amazon Bedrock (Claude Haiku 4.5) | Fastest — classification, extraction, quick tasks | `us.anthropic.claude-haiku-4-5-20251001-v1:0` |
 | Amazon Bedrock (Claude Sonnet 4.5) | Complex analysis, creative generation | `us.anthropic.claude-sonnet-4-5-20250929-v1:0` |
 | Amazon Polly | Text-to-speech (neural voices) | N/A — use `polly` client |
 | Amazon Textract | Document/PDF text extraction | N/A — use `textract` client |
