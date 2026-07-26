@@ -1,6 +1,6 @@
 # AWS Services You Can Use
 
-Your sandbox account comes with the services below ready to go. You do not need all of them, most winning demos use two or three. Not sure which to pick? Write "TBD, need help choosing" in your vision doc and ask an AWS expert or Claude Code on the day.
+Your sandbox account comes with the services below ready to go. These are only recommendations, the sky is the limit, if a service in your sandbox helps your idea, use it. You do not need all of them, most winning demos use two or three. Not sure which to pick? Write "TBD, need help choosing" in your vision doc and ask an AWS expert or Claude Code on the day.
 
 ## Core AI services
 
