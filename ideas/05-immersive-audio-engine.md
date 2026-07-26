@@ -1,6 +1,8 @@
 ## 5. Immersive Audio Engine
 *Turn text into multi-voice audio in minutes instead of weeks*
 
+**In Plain English:** Recording an audiobook with human narrators costs thousands of dollars per hour of audio, so most older titles never get one. This tool takes a chapter or article, figures out which parts are narration and which are dialogue, and turns it into audio using several different AI voices, giving you a finished recording in minutes instead of weeks.
+
 **The Problem:** Audio content is booming, but professional production costs $5,000+ per finished hour. That prices out most backlist titles, mid-tier content, and the growing demand for audio versions of articles and newsletters. The European Accessibility Act, in force since June 2025, requires accessible formats — frontlist compliance is underway at most houses, but converting thousands of backlist titles is the acute pain point. AI voices have gotten good enough to close the gap between what listeners expect and what publishers can afford.
 
 **Real-Life Example:** You have 500 backlist titles with no audiobook edition because narration costs don't justify the expected sales. Meanwhile, your competitor just released AI-narrated editions of their entire catalog and is capturing the long-tail market you're missing.

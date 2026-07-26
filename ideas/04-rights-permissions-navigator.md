@@ -1,6 +1,8 @@
 ## 4. AI Rights & Permissions Navigator
 *Ask your contracts a question and get a straight answer with citations*
 
+**In Plain English:** Publishing contracts hold answers to questions like whether you can sell an audiobook in Germany, but finding those answers means digging through piles of PDFs. This tool reads your contracts and lets you ask questions in plain English. It answers by pointing to the exact clause in the contract, and if something is unclear it flags it for a lawyer instead of guessing.
+
 **The Problem:** Publishing runs on contracts, and nobody can find anything in them. Rights managers dig through PDFs — sometimes scanned ones from the '90s — to answer simple questions like "Can we sell this audiobook in Germany?" or "When does this license expire?" The information exists, it's just buried in legal language across hundreds of files.
 
 **Real-Life Example:** A film studio calls asking about adaptation rights for one of your titles. Your rights manager spends two days pulling the original contract, checking amendments, and emailing legal — only to discover the option expired six months ago. With a searchable contract system, that answer takes thirty seconds.

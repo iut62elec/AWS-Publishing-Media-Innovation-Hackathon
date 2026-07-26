@@ -1,6 +1,8 @@
 ## 2. Intelligent Content Triage
 *Let AI do the first read so your editors can focus on the good stuff*
 
+**In Plain English:** Editors spend hours reading through piles of submissions and pitches, and most of them get rejected anyway. This tool does the first read for them. It scores each submission on writing quality and fit, then hands the editor a sorted list with notes on strengths and concerns, so they only spend real time on the promising ones.
+
 **The Problem:** Editors are buried in submissions. Book publishers get thousands of unsolicited manuscripts a year; digital teams get hundreds of freelancer pitches a week. Most won't make the cut, but someone still has to read them all. That first-pass screening eats up time that could go toward actual editing.
 
 **Real-Life Example:** Your content ops team gets 30 freelancer pitches every Monday morning. An editor spends half the day skimming them, rejecting 25, and passing 5 along. With an AI triage layer, the editor opens a pre-sorted queue — the top 5 are already flagged with summaries, quality scores, and notes on how they fit your editorial calendar.

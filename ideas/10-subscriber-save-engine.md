@@ -1,6 +1,8 @@
 ## 10. Subscriber Save Engine
 *Spot the subscribers about to leave, and win them back with a personal touch*
 
+**In Plain English:** Most publishers lose around 4 to 5 percent of their subscribers every month, and usually nobody notices someone is drifting away until they cancel. This tool looks at subscriber activity data, flags the people showing warning signs, explains why each one is at risk, and drafts a personal message to win them back based on what that reader used to enjoy.
+
 **The Problem:** Subscriptions are the top revenue focus for roughly three quarters of publishers, but the median news publisher loses around 4–5% of digital subscribers every month. With new-reader acquisition getting harder as search traffic declines, retention is the whole ballgame. Yet most churn responses are generic: the same discount email to everyone, sent after the reader has already decided to leave.
 
 **Real-Life Example:** A subscriber who read your food coverage daily has gone quiet for three weeks — she's a cancellation waiting to happen. Today, nobody notices until the cancellation survey. A save engine flags her this week, sees *what she used to love*, and drafts a personal win-back email: "We noticed you enjoyed our restaurant guides — here are three new ones, plus our new weekly food newsletter." Personal beats generic discount, and it costs nothing to send.

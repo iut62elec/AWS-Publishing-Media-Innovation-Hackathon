@@ -1,6 +1,8 @@
 ## 9. Ask Your Archive
 *Your own AI chat experience, built on your content, keeping readers on your site*
 
+**In Plain English:** Readers are getting answers from chatbots instead of visiting publisher sites. This tool gives you your own chat experience built only on your own articles, like the Washington Post did with Ask The Post AI. Readers ask a question on your site, get an answer drawn only from your reporting with links to the source articles, and if your archive does not cover it, the tool says so instead of making something up.
+
 **The Problem:** Readers are getting answers from AI chatbots instead of clicking through to publishers. Google's AI Overviews cut click-through rates nearly in half when they appear, and publishers expect search traffic to keep falling. The industry's answer: own the AI experience yourself. The Washington Post launched "Ask The Post AI," the Financial Times launched "Ask FT" — conversational search over their own journalism, with answers grounded in their own articles. Most publishers don't have this yet.
 
 **Real-Life Example:** A reader wants to understand a developing story your newsroom has covered in twelve articles over three months. Today they either dig through your archive page by page, or they ask ChatGPT and never visit your site at all. With your own archive chat, they ask one question on *your* site, get a synthesized answer built only from *your* reporting, with citations linking back to each article — and every citation is a pageview you would have lost.

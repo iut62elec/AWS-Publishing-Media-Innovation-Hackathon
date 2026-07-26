@@ -1,6 +1,8 @@
 ## 1. AI Backlist Revitalizer
 *Find hidden gems in your catalog that match what people are searching for right now*
 
+**In Plain English:** Every publisher has thousands of older books or articles that nobody looks at anymore, and some of them would sell again if they matched a topic people care about today. This tool takes your catalog, compares it against current trends, and gives you a ranked list of older titles worth promoting right now, along with a short pitch explaining why each one is timely.
+
 **The Problem:** Every publisher has thousands of older titles or articles gathering dust. Some of that content is one trend away from being relevant again — but nobody has time to manually cross-reference the catalog against what's trending today. Thin metadata makes it even harder: many backlist titles have only a title, author, and one-line description.
 
 **Real-Life Example:** A 2019 cookbook on fermentation is sitting in your backlist with flat sales. Meanwhile, "gut health" is blowing up on TikTok and search volume for "fermented foods" is at an all-time high. Your team won't notice until the moment has passed — unless something connects the dots automatically.

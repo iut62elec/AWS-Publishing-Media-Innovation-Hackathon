@@ -1,6 +1,8 @@
 ## 3. One Story, Every Format
 *One article goes in, five ready-to-publish formats come out (with audio)*
 
+**In Plain English:** When you publish one article, different people usually rewrite it as a newsletter, a social post, a podcast script, a push notification, and a search summary. This tool takes the original article and produces all five versions at once, including a spoken audio version, with each one written the way that format expects. A person still reviews everything before it goes out.
+
 **The Problem:** A single article could live as a newsletter, a social thread, a podcast script, a push notification, and an SEO summary — but today, each format gets rewritten by a different person. When you publish hundreds of pieces a week, that reformatting tax adds up fast. The result: slow distribution and inconsistent messaging across channels.
 
 **Real-Life Example:** Your newsroom publishes a 1,200-word feature on remote work trends. The social team needs a thread, the newsletter editor needs a summary, the podcast producer needs a script, and the app team needs a push notification. Four people, four rewrites, four hours — for content that already exists.
