@@ -21,7 +21,7 @@ If you prefer your own local setup with another coding agent, that is fine too, 
 ## How the day works
 
 1. You will form a team of around five people, one team builds one idea
-2. Pick one of the 8 ready made ideas below, or bring your own
+2. Pick one of the 12 ready made ideas below, or bring your own
 3. Follow the **[Build Guide](BUILD-GUIDE.md)**, it gives you the exact prompts to go from idea to working demo
 4. Build for about 4.5 hours, then present a short demo to the judging panel, scored using the **[Judging Rubric](JUDGING-RUBRIC.md)**, read it before you build, it tells you exactly what the judges reward
 
@@ -41,8 +41,12 @@ Each idea is a real publishing industry problem, designed to be buildable in an 
 | 8 | [Reader Drop-Off Predictor](ideas/08-reader-drop-off-predictor.md) | Predict where readers lose interest | Content strategists |
 | 9 | [Ask Your Archive](ideas/09-ask-your-archive.md) | Your own AI chat over your content, like "Ask The Post AI" | Product, audience teams |
 | 10 | [Subscriber Save Engine](ideas/10-subscriber-save-engine.md) | Spot subscribers about to cancel, win them back personally | Retention, marketing teams |
+| 11 | [AI Story Studio](ideas/11-ai-story-studio.md) ⚠️ advanced | An AI newsroom: editor agent directs researcher, writer, illustrator, and fact checker agents | Ambitious teams, editorial |
+| 12 | [Autonomous Retention Desk](ideas/12-newsroom-retention-desk.md) ⚠️ advanced | An AI retention team: agents find at-risk readers, pick a save move, write and review the message | Ambitious teams, retention |
 
 Tip: Intelligent Content Triage (#2) is the simplest, start there if you want a quick win. Ask Your Archive (#9) and Subscriber Save Engine (#10) target the two issues publishers rank highest right now, falling search traffic and subscription churn.
+
+**Want a challenge?** Ideas #11 and #12 are **advanced multi-agent builds**: instead of one prompt, you build a team of AI agents that hand work to each other, using the [Strands Agents](https://strandsagents.com/) framework with an orchestrator that calls specialist agents as tools, and optionally deploy to [Amazon Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/). They take the full afternoon and need Python comfort, but the demo is one few teams will have.
 
 ### The ideas in plain English
 
@@ -65,6 +69,10 @@ Tip: Intelligent Content Triage (#2) is the simplest, start there if you want a 
 **9. [Ask Your Archive](ideas/09-ask-your-archive.md)** — Readers are getting answers from chatbots instead of visiting publisher sites. This tool gives you your own chat experience built only on your own articles, like the Washington Post did with Ask The Post AI. Readers ask a question on your site, get an answer drawn only from your reporting with links to the source articles, and if your archive does not cover it, the tool says so instead of making something up.
 
 **10. [Subscriber Save Engine](ideas/10-subscriber-save-engine.md)** — Most publishers lose around 4 to 5 percent of their subscribers every month, and usually nobody notices someone is drifting away until they cancel. This tool looks at subscriber activity data, flags the people showing warning signs, explains why each one is at risk, and drafts a personal message to win them back based on what that reader used to enjoy.
+
+**11. [AI Story Studio](ideas/11-ai-story-studio.md)** (advanced) — Today, turning a story idea into a published piece takes a whole team, someone researches, someone writes, someone creates art, and someone checks the facts. This project builds that team out of AI agents. You give one editor in chief agent a short brief, and it directs the specialists, the researcher gathers background, the writer drafts the piece, the illustrator generates artwork, and the fact checker reviews the claims and can send the draft back for fixes. You watch the agents work together and get back a complete story package. This one is harder and uses a real multi agent framework, pick it if your team wants a challenge.
+
+**12. [Autonomous Retention Desk](ideas/12-newsroom-retention-desk.md)** (advanced) — Idea 10 flags subscribers who might cancel and drafts one email. This project goes much further, it builds a whole retention team out of AI agents. A supervisor agent directs the specialists, an analyst finds who is at risk and why, a strategist decides the best save move for each person, a copywriter writes the message in your publication's voice, and a reviewer checks the message and rejects it if it is not good enough. The agents hand work to each other and disagree with each other, and you watch it happen. This one is harder and uses a real multi agent framework, pick it if your team wants a challenge.
 
 ## Vision documents, your starting spec
 
