@@ -50,15 +50,14 @@ Interested in Elemental Inference's contextual metadata for your build? Tell an 
 
 For the demo itself, a local Streamlit or Flask app calling these services is perfectly fine, you do not need to deploy infrastructure to win.
 
-## AWS partner services
+## AWS partners at the event
 
-AWS has a large partner ecosystem, and you are welcome to use partner services as a complement to AWS services in your build.
+Two AWS partners are joining us at the hackathon, and you are welcome to use their services and expertise as a complement to AWS services in your build.
 
-- **Partner models in Amazon Bedrock:** beyond Claude, Bedrock gives you the same API for partner foundation models, including Stability AI for image generation, Luma AI for video generation, TwelveLabs for video understanding, Cohere for embeddings and reranking, and Mistral and Meta Llama for text. Model availability varies by region, check the Bedrock console in your sandbox.
-- **AWS Marketplace:** thousands of partner tools (data feeds, analytics, content APIs) that run on or integrate with AWS.
-- **Bring your own stack:** if your publishing house already uses a partner CMS, analytics platform, or email service, you can call its API from your app alongside AWS services, that often makes the demo feel real.
+- **Metal Toad** — an AWS consulting partner with deep experience in media and entertainment. Their team can help you shape your architecture, work through AWS integration questions, and turn your idea into a working build faster.
+- **Progress** — offers products you can pair with AWS services in your solution, including Sitefinity for content management and MarkLogic for data and semantic search. If your idea needs a CMS or a content data layer, talk to their team.
 
-Ask an AWS expert on the day if you want help picking or connecting a partner service.
+Both partners will have people in the room, ask them anything, that is why they are here.
 
 ## Rules of thumb
 

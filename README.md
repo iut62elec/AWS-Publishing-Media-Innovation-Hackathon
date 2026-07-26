@@ -10,7 +10,7 @@ Event page: [awspublishinghackathon032026.splashthat.com](https://awspublishingh
 
 On the day of the hackathon you will receive:
 
-- **An AWS sandbox account**, your team's own account where you can build and deploy real AWS services (Amazon Bedrock, S3, Lambda, Polly, Textract, Translate, Comprehend, and more), not just code — see the full **[Services Guide](SERVICES.md)**, including media services like AWS Elemental Inference and partner services you can use as a complement
+- **An AWS sandbox account**, your team's own account where you can build and deploy real AWS services (Amazon Bedrock, S3, Lambda, Polly, Textract, Translate, Comprehend, and more), not just code — see the full **[Services Guide](SERVICES.md)**, including media services like AWS Elemental Inference and services from our event partners Metal Toad and Progress
 - **Claude Code in your browser**, a powerful AI coding agent running on Amazon Bedrock with unlimited tokens, no installation needed, it works entirely through the browser
 - **AWS experts** on hand to help you at every step
 
@@ -83,7 +83,7 @@ Every idea has a ready made one page **vision document** in [`vision-docs/`](vis
 ## Get started
 
 1. **First:** Complete the **[Setup Guide](SETUP-GUIDE.md)** — get credentials, verify AWS access, install dependencies (5 minutes)
-   - Browse the **[Services Guide](SERVICES.md)** to see every AWS service, media service, and partner option available to your team
+   - Browse the **[Services Guide](SERVICES.md)** to see every AWS service and media service available, plus our event partners Metal Toad and Progress
 2. **Then:** Follow the **[Build Guide](BUILD-GUIDE.md)** — 6 steps from idea to working demo
 3. **If stuck:** Check the **[Troubleshooting Guide](TROUBLESHOOTING.md)** — quick fixes for common issues
 
