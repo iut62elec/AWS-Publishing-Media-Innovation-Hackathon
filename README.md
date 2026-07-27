@@ -2,6 +2,8 @@
 
 Welcome! This repo is everything you need to build your idea today. Read this page first, it takes 3 minutes.
 
+**New here? Start with the [Walkthrough](WALKTHROUGH.md)**, the 10 minute tour we present at the start of the day: what you get, the latest on AWS, the coding agents, the spec driven method, and how the day runs.
+
 Event page: [awspublishinghackathon032026.splashthat.com](https://awspublishinghackathon032026.splashthat.com/)
 
 ---
