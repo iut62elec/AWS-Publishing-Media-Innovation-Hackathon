@@ -29,7 +29,21 @@ You are using Claude Code in a browser-based environment. Your workspace URL loo
 https://YOUR-ID.cloudfront.net/code/
 ```
 
-This is a full terminal with Claude Code already installed. You can start working immediately.
+This opens VS Code in your browser with Claude Code already installed. Open the terminal in VS Code and start Claude Code by typing:
+
+```bash
+claude
+```
+
+or, to skip the permission prompts (fine here, your sandbox account is disposable):
+
+```bash
+claude --dangerously-skip-permissions
+```
+
+That is it, you now have Claude Code running.
+
+> **Models in this workshop:** Claude Code in the sandbox has access to **Claude Opus 4.6** and **Claude Sonnet 4.6** only. You can switch between them any time with the `/model` command inside Claude Code.
 
 ---
 
