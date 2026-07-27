@@ -4,9 +4,18 @@ This guide gets your environment ready before you start building. Complete these
 
 ---
 
-## 1. Get Your AWS Credentials
+## 1. Join the Event
 
-1. Go to your **Event Dashboard**: https://catalog.us-east-1.prod.workshops.aws/event/dashboard/en-US
+1. Go to https://catalog.us-east-1.prod.workshops.aws/join
+2. Sign in with **Email one-time password (OTP)**
+3. Enter the **event code** your AWS host provides in the room
+4. Accept the terms, you land on your **Event Dashboard**
+
+---
+
+## 2. Get Your AWS Credentials
+
+1. On your **Event Dashboard**: https://catalog.us-east-1.prod.workshops.aws/event/dashboard/en-US
 2. Click **"Get AWS CLI credentials"** (or Open AWS Console → copy credentials)
 3. You will see four values:
    ```
@@ -21,7 +30,7 @@ This guide gets your environment ready before you start building. Complete these
 
 ---
 
-## 2. Open Claude Code
+## 3. Open Claude Code
 
 You are using Claude Code in a browser-based environment. Your workspace URL looks like:
 
@@ -47,9 +56,9 @@ That is it, you now have Claude Code running.
 
 ---
 
-## 3. Set Your AWS Credentials
+## 4. Set Your AWS Credentials
 
-In the Claude Code terminal, paste the four export lines from Step 1:
+In the Claude Code terminal, paste the four export lines from Step 2:
 
 ```bash
 export AWS_DEFAULT_REGION="us-east-1"
@@ -60,7 +69,7 @@ export AWS_SESSION_TOKEN="..."
 
 ---
 
-## 4. Verify Everything Works (Smoke Test)
+## 5. Verify Everything Works (Smoke Test)
 
 Run this to confirm your environment is ready:
 
@@ -116,7 +125,7 @@ If any step fails, see [TROUBLESHOOTING.md](TROUBLESHOOTING.md).
 
 ---
 
-## 5. Install Common Dependencies
+## 6. Install Common Dependencies
 
 Most projects will need these:
 
@@ -129,7 +138,7 @@ sudo apt-get install -y ffmpeg
 
 ---
 
-## 6. Important: Web App Access (Read This!)
+## 7. Important: Web App Access (Read This!)
 
 Your web apps are accessible through a **CloudFront proxy**. When you run a Flask/web server on port 5000, access it at:
 
@@ -153,7 +162,7 @@ The leading `/` sends requests to the CloudFront root instead of your app. Drop 
 
 ---
 
-## 7. Start Building
+## 8. Start Building
 
 You're ready! Open the [BUILD-GUIDE.md](BUILD-GUIDE.md) and follow the six steps. Pick your idea from the [vision-docs/](vision-docs/) folder, or bring your own using the [template](templates/).
 
