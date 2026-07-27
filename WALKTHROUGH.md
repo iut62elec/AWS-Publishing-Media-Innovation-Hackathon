@@ -54,18 +54,19 @@ Today you work the other way:
 2. **Feed it to Claude Code.** It proposes requirements and a plan, you approve each stage before it builds
 3. **Build in small loops.** Get one thing working, verify it, then add the next thing
 
+You do not have to invent any of this. The **[Build Guide](BUILD-GUIDE.md#step-1-requirements-requirementsmd) has the exact copy paste prompts** for every step, requirements, plan, build, test, and demo prep. Open it, copy the Step 1 prompt, paste in your vision doc, and go.
+
 The loop never changes: **the agent proposes, the human approves.** This is a pocket version of [AI-DLC](https://github.com/awslabs/aidlc-workflows), the open source AI driven development lifecycle from AWS, and it is the single biggest thing that separates teams that demo from teams that debug.
 
 ---
 
 ## 5. Pick your idea
 
-Twelve real publishing problems, each buildable in an afternoon, all in the [README](README.md#the-ideas) with plain English explanations:
+**[Twelve real publishing problems, browse them all here](README.md#the-ideas)**, each one buildable in an afternoon, each with a plain English explanation, full details in [`ideas/`](ideas/), and a ready made spec in [`vision-docs/`](vision-docs/).
 
-- **Quickest win:** #2 Intelligent Content Triage
-- **Biggest publisher pains right now:** #9 Ask Your Archive and #10 Subscriber Save Engine, they target falling search traffic and subscription churn
-- **Want a challenge:** #11 AI Story Studio and #12 Autonomous Retention Desk, multi agent builds with Strands Agents, a demo few teams will have
-- **Own idea?** Copy the [vision template](templates/vision-template.md), fill it in, 15 minutes
+They span the whole publishing world, marketing, editorial, audio, rights, localization, audience, and retention. Ideas #11 and #12 are marked advanced, they are multi agent builds for teams who want the harder challenge. Pick whichever problem your team actually cares about, that is the one you will build best.
+
+**Own idea?** Also welcome. Copy the [vision template](templates/vision-template.md), fill it in, 15 minutes.
 
 ---
 
